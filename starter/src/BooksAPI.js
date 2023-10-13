@@ -27,7 +27,10 @@ export const update = (book, shelf) =>
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ shelf }),
-  }).then((res) => res.json());
+  }).then((res) => res.json())
+  .then((updatedBook) => {
+    return updatedBook;
+  });
 
 export const search = (query, maxResults) =>
   fetch(`${api}/search`, {
